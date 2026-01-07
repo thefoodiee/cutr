@@ -10,23 +10,28 @@ const Main = () => {
   const [generated, setGenerated] = useState("");
 
   const generate = async () => {
-    try {
-      const res = await fetch("/api/generate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ url, shorturl }),
-      });
+  try {
+    const res = await fetch("/api/generate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ url, shorturl }),
+    });
 
-      if (!res.ok) throw new Error("Failed to generate link");
+    const data = await res.json();
 
-      await res.json();
-      setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${shorturl}`);
-      setUrl("");
-      setShortUrl("");
-    } catch (err) {
-      console.error(err);
+    // 👇 mismatch case: shorturl exists but URL is different
+    if (!data.success) {
+      setGenerated("url already exists");
+      return;
     }
-  };
+
+    setGenerated(`${process.env.NEXT_PUBLIC_HOST}/${shorturl}`);
+    setUrl("");
+    setShortUrl("");
+  } catch (err) {
+    console.error(err);
+  }
+};
 
   return (
     <div className="relative z-20 flex flex-col items-center px-4 py-16 w-full">
