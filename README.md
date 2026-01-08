@@ -1,7 +1,7 @@
 # skibi.di - URL Shortener
-Try it out! - [skibuddysigma.vercel.app](https://skibuddysigma.vercel.app)
+Try it out! - [cutrrr.vercel.app](https://cutrrr.vercel.app)
 
-A minimal URL shortener built with **Next.js** and **MongoDB**, powering **skibi.di**.
+A minimal URL shortener built with **Next.js** and **MongoDB**, powering **cutrrr**.
 
 ---
 
@@ -11,7 +11,7 @@ A minimal URL shortener built with **Next.js** and **MongoDB**, powering **skibi
 - Collision handling (`shorturl already taken`)  
 - MongoDB-backed storage  
 - Fast redirects  
-- Clean UI  
+- Pixelated UI 
 - Vercel-ready  
 
 ---
@@ -40,8 +40,8 @@ src/
 ##  Run Locally
 
 ```bash
-git clone https://github.com/thefoodiee/skibuddy
-cd skibuddy
+git clone https://github.com/thefoodiee/cutr
+cd cutr
 npm install
 npm run dev
 ```
@@ -58,7 +58,7 @@ POST `/api/generate`
 ```
 {
   "url": "https://example.com",
-  "shorturl": "skibi"
+  "shorturl": "cute"
 }
 ```
 
